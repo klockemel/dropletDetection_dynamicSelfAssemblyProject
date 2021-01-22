@@ -48,7 +48,8 @@ This folder will contain the output of the detection code, as well as scripts fo
     python bad_filter.py fn_values.csv
   
   2b. If you are noting the IDs of correctly-detected droplets, you will run the "good_filter.py" script. 
-    Input files: fn_values.csv, fn_intensity.csv
+    
+  Input files: fn_values.csv, fn_intensity.csv
     
   Output files: fn_val_filtered.csv, fn_intensity_filtered.csv
     
@@ -59,7 +60,8 @@ This folder will contain the output of the detection code, as well as scripts fo
 The filter scripts will create new files with the artifacts removed for both the "fn_values.csv" and "fn_intensity.csv" files. I suggest keeping both the filtered and unfiltered data for your records, but continue processing only the filtered data. You will have to run the filter scripts for each timepoint in your series. Because the following scripts are expecting files with names following the format "fn_intensity_filtered.csv" and "fn_val_filtered.csv", if you do not have any artifacts to remove you can copy the "fn_values.csv" and "fn_intensity.csv" files and rename the copies to follow the necessary format. 
   
   3. Once artifacts are removed, skewness and kurtosis values can be generated using the "generating_skew_kurt_dno.py" script.
-    Input files: fn_val_filtered.csv, fn_intensity_filtered.csv
+  
+  Input files: fn_val_filtered.csv, fn_intensity_filtered.csv
     
   Output files: fn_final_data.csv, fn_generated_intensities.csv
     
@@ -68,7 +70,8 @@ The filter scripts will create new files with the artifacts removed for both the
       python generating_skew_kurt_dno.py fn_intensity_filtered.csv
     
   4. Finally, an updated reference image with only the final detected droplets can be prepared using the finalDrops_img.py script.
-    Input files: fn_final_data.csv, fn.tif
+  
+  Input files: fn_final_data.csv, fn.tif
     
   Output files: fn_finalimg.png
     
