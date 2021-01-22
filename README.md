@@ -27,7 +27,7 @@ Running the script may take seconds or tens of minutes. Output will be stores in
 
 **Output files in dropletDetection/_figs directory:** fn_values.csv, fn_intensity.csv, fn_runvalues.csv, fn_compimg.png 
 
-**Commands: **
+**Commands:**
 
     python headless_nd2_scaled_droplet.py fn.nd2 
 
