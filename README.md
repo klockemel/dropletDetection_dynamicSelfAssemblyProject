@@ -43,7 +43,7 @@ This folder will contain the output of the detection code, as well as scripts fo
     
   **Output files:** fn_val_filtered.csv, fn_intensity_filtered.csv
     
-  **Commands: **
+  **Commands:**
   
     python bad_filter.py fn_values.csv
   
