@@ -81,4 +81,4 @@ The filter scripts will create new files with the artifacts removed for both the
     
 Further analysis of the data (skewness, kurtosis, droplet size, etc)  can be done in separate plotting scripts or an interactive environment.
 
-**Two representative images from the project are available to try with the code in the * *dropletDetection_examples* * directory.**
+**Two representative images from the project are available to try with the code in the _dropletDetection_examples_ directory.**
