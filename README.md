@@ -3,17 +3,17 @@ This project contains the scripts used in the droplet detection and data extract
 
 The workflow is as follows:
 
-## pre-processing > nd2_brightness_adjust_fiji.py
+### pre-processing > nd2_brightness_adjust_fiji.py
 
 This folder contains a script run using ImageJ or Fiji's script editor/interpreter. This script reads all raw .nd2 files in a user-selected directory, applies the "auto" brightness-adjust process, and saves the adjusted images as 8-bit tiff files. To use, drag all images for a given sample which you intend to process to a "pre-processing" folder. I recommend working with just one sample at a time, i.e. all images for single set of parameters, to keep your task load manageable. Open the "nd2_brightness_adjust_fiji.py" file in Fiji, and select "Run". The resulting tiff files will be saved to the "_figs" folder. Move all .nd2 and tiff files to a "dropletDetection" folder to continue.
 
-Input files in pre-processing directory: raw nd2 micrograps
+**Input files in pre-processing directory:** raw nd2 micrograps
 
-Output files in pre-processing/_figs directory: brightness-adjusted tiffs
+**Output files in pre-processing/_figs directory:** brightness-adjusted tiffs
 
-Commands: NA, run in FIJI/ImageJ
+**Commands:** NA, run in FIJI/ImageJ
 
-## dropletDetection > headless_nd2_scaled_droplet.py
+### dropletDetection > headless_nd2_scaled_droplet.py
 
 This folder contains the droplet detection Python script, and the "_figs" folder where generated data will be created and further processing scripts are located. The "_figs" directory will be created when running the script for the first time. To run droplet detection, both the brightness-adjusted tiff file and raw nd2 files must be in this folder. 
 
@@ -23,15 +23,15 @@ Input parameters may be adjusted based on the user's needs: range of radii prese
 
 Running the script may take seconds or tens of minutes. Output will be stores in the "_figs" folder. Note: for a time series, the script will have to be run on each image individually. I usually go through the entire workflow for all timepoints at a given set of parameters at once, i.e. process all timepoints for 50 nM gene at once.
 
-Input files in dropletDetection directory: fn_nd2, fn.tif where "fn" is your filename
+**Input files in dropletDetection directory:** fn_nd2, fn.tif where "fn" is your filename
 
-Output files in dropletDetection/_figs directory: fn_values.csv, fn_intensity.csv, fn_runvalues.csv, fn_compimg.png 
+**Output files in dropletDetection/_figs directory:** fn_values.csv, fn_intensity.csv, fn_runvalues.csv, fn_compimg.png 
 
-Commands: 
+**Commands: **
 
     python headless_nd2_scaled_droplet.py fn.nd2 
 
-## dropletDetection/_figs > remaining scripts
+### dropletDetection/_figs > remaining scripts
 
 This folder will contain the output of the detection code, as well as scripts for artifact removal, skewness and kurtosis generation, and labeling the final set of detected droplets on the brightness adjusted image. 
   
@@ -39,21 +39,21 @@ This folder will contain the output of the detection code, as well as scripts fo
   
   2a. If you are taking note of the IDs of artifacts, you will run the "bad_filter.py" script.
   
-  Input files: fn_values.csv, fn_intensity.csv
+  **Input files:** fn_values.csv, fn_intensity.csv
     
-  Output files: fn_val_filtered.csv, fn_intensity_filtered.csv
+  **Output files:** fn_val_filtered.csv, fn_intensity_filtered.csv
     
-  Commands: 
+  **Commands: **
   
     python bad_filter.py fn_values.csv
   
   2b. If you are noting the IDs of correctly-detected droplets, you will run the "good_filter.py" script. 
     
-  Input files: fn_values.csv, fn_intensity.csv
+  **Input files:** fn_values.csv, fn_intensity.csv
     
-  Output files: fn_val_filtered.csv, fn_intensity_filtered.csv
+  **Output files:** fn_val_filtered.csv, fn_intensity_filtered.csv
     
-  Commands: 
+  **Commands:** 
   
     python good_filter.py fn_values.csv 
   
@@ -61,21 +61,21 @@ The filter scripts will create new files with the artifacts removed for both the
   
   3. Once artifacts are removed, skewness and kurtosis values can be generated using the "generating_skew_kurt_dno.py" script.
   
-  Input files: fn_val_filtered.csv, fn_intensity_filtered.csv
+  **Input files:** fn_val_filtered.csv, fn_intensity_filtered.csv
     
-  Output files: fn_final_data.csv, fn_generated_intensities.csv
+  **Output files:** fn_final_data.csv, fn_generated_intensities.csv
     
-  Commands: 
+  **Commands:** 
     
       python generating_skew_kurt_dno.py fn_intensity_filtered.csv
     
   4. Finally, an updated reference image with only the final detected droplets can be prepared using the finalDrops_img.py script.
   
-  Input files: fn_final_data.csv, fn.tif
+  **Input files:** fn_final_data.csv, fn.tif
     
-  Output files: fn_finalimg.png
+  **Output files:** fn_finalimg.png
     
-  Commands: 
+  **Commands:** 
   
     python finalDrops_img.py fn.tif
     
