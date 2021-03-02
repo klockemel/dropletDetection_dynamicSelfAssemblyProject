@@ -82,3 +82,8 @@ The filter scripts will create new files with the artifacts removed for both the
 Further analysis of the data (skewness, kurtosis, droplet size, etc)  can be done in separate plotting scripts or an interactive environment.
 
 **Two representative images from the project are available to try with the code in the _dropletDetection_examples_ directory.**
+
+
+## Matlab Simulations 
+
+The code to simulate the ODE models from S7 can be found in the matlab_simulations directory. The plots can be rendered by running those files in the local directory path. The shading and color of those plots were done using Kristjan Jonasson's RGB.m function file. You can download it <a href="https://www.mathworks.com/matlabcentral/fileexchange/24497-rgb-triple-of-color-name-version-2?s_tid=prof_contriblnk">here.</a> 
