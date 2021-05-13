@@ -1,5 +1,7 @@
 # dropletDetection_dynamicSelfAssemblyProject
-This project contains the scripts used in the droplet detection and data extraction for the dynamic self-assembly project. Using the suggested directory organization is recommended, but not necessary as long as the input-output data for each script maintain their location relative to each other.
+The goal of this project is to 1) establish a python-based automated detection of circular objects of varying sizes in micrographs and extract their pixel brightness values and 2) illustrate temporal dynamics of different nanotube monomer behaviors via an ODE model in Matlab. The primary task of the image processing portion of this project was to scale-up the quantification of data from differently sized circular droplets from tens of droplets per image (by hand in FIJI) to hundreds of droplets per image via digital image processing (DIP). The DIP scripts here work with proprietary "nd2" files from Nikon NIS-Elements, but can be adapted to process other file formats. This project contains all scripts used in the droplet detection and data extraction for the dynamic self-assembly project. Using the suggested directory organization is recommended, but not necessary as long as the input-output data for each script maintain their location relative to each other.
+
+Dependencies are listed in the ".dependencies" file. This project uses ND2Reader from nd2reader, found <a href="https://github.com/rbnvrw/nd2reader">here.</a> 
 
 The workflow is as follows:
 
@@ -17,7 +19,7 @@ This folder contains a script run using ImageJ or Fiji's script editor/interpret
 
 This folder contains the droplet detection Python script, and the "_figs" folder where generated data will be created and further processing scripts are located. The "_figs" directory will be created when running the script for the first time. To run droplet detection, both the brightness-adjusted tiff file and raw nd2 files must be in this folder. 
 
-Before running the droplet detection script, open the script in your editor of choice, and input the following parameters 1) min radius, 2) max radius, 3) step size, and 4) num drops and save. Further explanation of these parameters are found in comments in the script. 
+Before running the droplet detection script, open the script in your editor of choice, and input the following parameters 1) min radius (pixels), 2) max radius (pixels), 3) step size (pixels), and 4) num drops and save. Further explanation of these parameters are found in comments in the script. 
 
 Input parameters may be adjusted based on the user's needs: range of radii present in the image, time limitations due to processing many images, step size based on individual need for precision, and so on. You may have to guess these parameters at first. You can make an educated guess by opening either image in Fiji, and measuring the diameters of the droplets you wish to detect. Run the script in your terminal, or interpreter of choice, by calling "python headless_nd2_scaled_droplet.py [filename].nd2". 
 
